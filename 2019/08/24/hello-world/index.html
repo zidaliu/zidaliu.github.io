@@ -137,6 +137,68 @@
             <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
@@ -159,7 +221,8 @@
         </header>
 
         <div class="post-content">
-            
+            <h1 id="Demos-to-be-showcased-at-ACM-SenSys’19"><a href="#Demos-to-be-showcased-at-ACM-SenSys’19" class="headerlink" title="Demos to be showcased at ACM SenSys’19"></a>Demos to be showcased at ACM SenSys’19</h1><p><strong>[SenSys19bToAppear]</strong> J. Stojkovic, <strong>Z. Liu</strong>, G. Lan, C. Joe-Wong, M. Gorlatova, Demo: Edge-assisted Collaborative Image Recognition for Augmented Reality, to appear in Proc. ACM Conference on Embedded Networked Sensor Systems <em>(ACM SenSys’19)</em>, New York City, NY, Nov. 2019.</p>
+
         </div>
 
         
